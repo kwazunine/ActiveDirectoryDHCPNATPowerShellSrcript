@@ -21,6 +21,7 @@ This walkthrough covers deploying Active Directory in an on-premises environment
 
 <h2 align="center">Environment Map</h2>
 <p align="center">
+The Windows Server 2019 Domain Controller will have two network interface cards (NICs). One NIC (NAT) connects directly to the global internet, while the other NIC (Internal) connects to the internal virtual network. The domain will be jamrocknation.com, the internal IP address subnet will be 172.16.0.0/24, and the Domain Controller will provide DHCP, DNS, and NAT services for clients connected to the internal network.<br />
 <img src="https://i.imgur.com/5NBo7w5.png" height="100%" width="100%" alt="Environment Map"/>
 <br />
 </p>
