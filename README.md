@@ -21,7 +21,7 @@ This walkthrough covers deploying Active Directory on-premises, configuring a DH
 
 <h2 align="center">Environment Map</h2>
 <p align="center">
-<img src="https://i.imgur.com/Z79cmTd.png" height="100%" width="100%" alt="Environment Map"/>
+<img src="https://i.imgur.com/5NBo7w5.png" height="100%" width="100%" alt="Environment Map"/>
 <br />
 </p>
 
