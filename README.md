@@ -163,6 +163,26 @@ PowerShell Script Results:  <br/>
 <img src="https://i.imgur.com/f800S1m.png" height="80%" width="80%" alt="PowerShell Script Results"/>
 <br />
 </p>
+<h2 align="center">Joining Windows 10 Client Machine To Active Directory Domain</h2> <br/>
+<p align="center">
+<br />
+Renaming Windows 10 Client Machine & Joining Windows 10 Client Machine To Active Directory Domain:  <br/>
+<img src="https://i.imgur.com/10ghrQx.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+<br />
+<img src="https://i.imgur.com/3XuHhV4.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+<br />
+<img src="https://i.imgur.com/DU4v01l.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+<br />
+Sign Into Windows 10 Client Machine With PowerShell Script Active Directory Created User  <br/>
+<img src="https://i.imgur.com/u1Ew5H4.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+<img src="https://i.imgur.com/ukECN6v.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+<img src="https://i.imgur.com/AKS89Fl.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+<img src="https://i.imgur.com/2933q2p.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+</p>
 
 
 <!--
