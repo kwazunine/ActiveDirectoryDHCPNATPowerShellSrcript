@@ -70,7 +70,7 @@ Configure Active Directory:  <br/>
 Windows Login Screen To Sign Into Domain:  <br/>
 <img src="https://i.imgur.com/0CTkAPc.png" height="80%" width="80%" alt="Windows Login Screen To Sign Into Domain"/>
 </p>
-<h2 align="center">Create OOrganizational Unit & Active Directory Administrator User</h2>
+<h2 align="center">Create Organizational Unit & Active Directory Administrator User</h2>
 <p align="center">
 Create Organizational Unit:  <br/>
 <img src="https://i.imgur.com/AQztRkV.png" height="80%" width="80%" alt="Create Organizational Unit"/>
@@ -96,6 +96,49 @@ Add AD Admin User To Domain Admin Group:  <br/>
 Sign In With AD Admin User:  <br/>
 <img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
 </p>
+<h2 align="center">Setup & Configure Routing and Remote Acecss</h2> <br/>
+<p align="center">
+Setup Routing and Remote Acecss:  <br/>
+<img src="https://i.imgur.com/hKDUxqQ.png" height="80%" width="80%" alt="Setup Routing and Remote Acecss"/>
+<br />
+<img src="https://i.imgur.com/yNVAXH4.png" height="80%" width="80%" alt="Setup Routing and Remote Acecss"/>
+<br />
+Configure Routing and Remote Acecss:  <br/>
+<img src="https://i.imgur.com/a2iVXVX.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+<br />
+<img src="https://i.imgur.com/xFsrTQS.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+<br />
+<img src="https://i.imgur.com/EgscLJb.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+<br />
+<img src="https://i.imgur.com/lCUBa13.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+<br />
+</p>
+<h2 align="center">Setup & Configure DHCP Server</h2> <br/>
+<p align="center">
+Setup DHCP Server:  <br/>
+<img src="https://i.imgur.com/YUH8syg.png" height="80%" width="80%" alt="Setup DHCP Server"/>
+<br />
+Configure DHCP Server:  <br/>
+<img src="https://i.imgur.com/seXTEwa.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/7CZRq8x.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/ym95xVQ.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/6fPPm86.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/M4ZWXBM.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/mR6VBvZ.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/1lMQFI7.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/97k8mgx.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+<img src="https://i.imgur.com/I6doKYH.png" height="80%" width="80%" alt="Configure DHCP Server"/>
+<br />
+</p>
+
 
 <!--
  ```diff
