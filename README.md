@@ -138,6 +138,31 @@ Configure DHCP Server:  <br/>
 <img src="https://i.imgur.com/I6doKYH.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
 </p>
+<h2 align="center">Active Directory Organizational Unit & User Creation With PowerShell Script</h2> <br/>
+<p align="center">
+PowerShell Script Files:  <br/>
+<img src="https://i.imgur.com/lsv7aD1.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+<br />
+<img src="https://i.imgur.com/slwtMpH.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+<br />
+<img src="https://i.imgur.com/wPR2E3F.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+<br />
+Running PowerShell Script With Windows PowerShell ISE:  <br/>
+<img src="https://i.imgur.com/SLegKFL.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+<img src="https://i.imgur.com/Fc8ADLA.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+<img src="https://i.imgur.com/1aq0vHx.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+<img src="https://i.imgur.com/5gSGCtm.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+<br />
+PowerShell Script Results:  <br/>
+<br />
+<img src="https://i.imgur.com/v05aqVS.png" height="80%" width="80%" alt="PowerShell Script Results"/>
+<br />
+<img src="https://i.imgur.com/f800S1m.png" height="80%" width="80%" alt="PowerShell Script Results"/>
+<br />
+</p>
 
 
 <!--
