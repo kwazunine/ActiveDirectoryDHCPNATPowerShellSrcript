@@ -70,6 +70,32 @@ Configure Active Directory:  <br/>
 Windows Login Screen To Sign Into Domain:  <br/>
 <img src="https://i.imgur.com/0CTkAPc.png" height="80%" width="80%" alt="Windows Login Screen To Sign Into Domain"/>
 </p>
+<h2 align="center">Create OOrganizational Unit & Active Directory Administrator User</h2>
+<p align="center">
+Create Organizational Unit:  <br/>
+<img src="https://i.imgur.com/AQztRkV.png" height="80%" width="80%" alt="Create Organizational Unit"/>
+<br />
+<img src="https://i.imgur.com/UY9vC6c.png" height="80%" width="80%" alt="Create Organizational Unit"/>
+<br />
+Create AD Admin User:  <br/>
+<img src="https://i.imgur.com/vCD87N1.png" height="80%" width="80%" alt="Create AD Admin User"/>
+<br />
+<img src="https://i.imgur.com/b2gNln1.png" height="80%" width="80%" alt="Create AD Admin User">
+<br />
+<img src="https://i.imgur.com/HSPyVo5.png" height="80%" width="80%" alt="Create AD Admin User"/>
+<br />
+Add AD Admin User To Domain Admin Group:  <br/>
+<img src="https://i.imgur.com/Hhe9AAE.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
+<br />
+<img src="https://i.imgur.com/qCCingZ.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
+<br />
+<img src="https://i.imgur.com/LKUm6v1.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
+<br />
+<img src="https://i.imgur.com/EUD3L9r.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
+<br />
+Sign In With AD Admin User:  <br/>
+<img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
+</p>
 
 <!--
  ```diff
