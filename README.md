@@ -194,7 +194,7 @@ Configure DHCP Server:  <br/>
 8. Now that the DHCP scope for the internal network clients is set, the Domain Controller must be 'Authorized' by right-clicking 'dc.jamrocknation.com' in the right sidebar and selecting 'Authorize'. <br/>
 <img src="https://i.imgur.com/1lMQFI7.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
-9. Right-click 'dc.jamrocknation.com' in the right sidebar again and click 'Refresh'. <br/>
+9. Right-click 'dc.jamrocknation.com' in the right sidebar again, then click 'Refresh'. <br/>
 <img src="https://i.imgur.com/97k8mgx.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
 10. A green checkmark should now appear on the 'IPv4' server icon in the left sidebar, and the DHCP scope address pool should appear when 'IPv4' is expanded in the left sidebar, as depicted in the image below. <br/>
