@@ -152,7 +152,7 @@ Configure Routing and Remote Acecss:  <br/>
 <img src="https://i.imgur.com/a2iVXVX.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
 <br />
 <br/>
-4. Select the 'Next' button in the setup wizard to proceed to to the 'Configuration' window. On this window choose 'Network address translation (NAT)' option and click 'Next'. <br/>
+4. Select the 'Next' button in the setup wizard to proceed to the 'Configuration' window. On this window choose 'Network address translation (NAT)' option and click 'Next'. <br/>
 <img src="https://i.imgur.com/xFsrTQS.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
 <br />
 5. Choose the NAT network interface, which is the internet-facing NIC that will translate the IP addresses of client machines on the internal virtual network and enable internet connectivity for them. Select 'Next' and then click 'Finish' in the setup wizard to complete the process. <br/>
@@ -163,18 +163,26 @@ Configure Routing and Remote Acecss:  <br/>
 <br />
 <br />
 </p>
+
 <h2 align="center">Setup & Configure DHCP Server</h2> <br/>
 <p align="center">
 Setup DHCP Server:  <br/>
+The DHCP Server will automatically assign IP addresses to client machines on the internal virtual network from a range of IP addresses defined in the DHCP pool. <br/>
+1. Open the 'Add Roles and Features Wizard' again and proceed to the 'Server Roles' window. No additional options are required in the wizard, so select DHCP Server and proceed through the prompts to add and install the DHCP Server features. Close the 'Add Roles and Features Wizard' once the installation is complete. <br/>
 <img src="https://i.imgur.com/YUH8syg.png" height="80%" width="80%" alt="Setup DHCP Server"/>
 <br />
+<br /> 
 Configure DHCP Server:  <br/>
+2. Access 'DHCP' from the 'Tools' menu in Server Manager. <br/>
 <img src="https://i.imgur.com/seXTEwa.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+3. Right-click 'DC (local)' in the left sidebar and select 'New Scope' from the menu. <br/>
 <img src="https://i.imgur.com/7CZRq8x.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+4. Click 'Next' in the setup wizard to proceed to the 'Scope Name' window. Enter '172.16.0.100-254' in the 'Name' field. This range represents the usable IP addresses that will be available to clients via DHCP on the internal virtual network's 172.16.0.0/24 subnet. <br/>
 <img src="https://i.imgur.com/ym95xVQ.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+5. Continue to the 'IP Address Range' window by clicking 'Next' in the wizard. Enter '172.16.0.100' in the 'Start IP Address' field, '172.16.0.254' in the 'End IP Address' field, '24' in the 'Length' field, and '255.255.255.0' in the 'Subnet mask' field. <br/>
 <img src="https://i.imgur.com/6fPPm86.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
 <img src="https://i.imgur.com/M4ZWXBM.png" height="80%" width="80%" alt="Configure DHCP Server"/>
