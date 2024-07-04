@@ -185,8 +185,10 @@ Configure DHCP Server:  <br/>
 5. Continue to the 'IP Address Range' window by clicking 'Next' in the wizard. Enter '172.16.0.100' in the 'Start IP Address' field, '172.16.0.254' in the 'End IP Address' field, '24' in the 'Length' field, and '255.255.255.0' in the 'Subnet mask' field. <br/>
 <img src="https://i.imgur.com/6fPPm86.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+6. Proceed to click the upcoming 'Next' buttons to get to the 'Router (Default Gateway)' window. '172.16.0.1' should be added in as the default gateway IP address as shown below in the image below. Select 'Next' after. <br/>
 <img src="https://i.imgur.com/M4ZWXBM.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+7. On the 'Domain Name and DNS Servers' window, the 'Parent domain' and 'IP address' fields should populate with the information from the Domain Controller which is "jamrocknation.com' and '127.16.0.1' in this case. <br/>
 <img src="https://i.imgur.com/mR6VBvZ.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
 <img src="https://i.imgur.com/1lMQFI7.png" height="80%" width="80%" alt="Configure DHCP Server"/>
