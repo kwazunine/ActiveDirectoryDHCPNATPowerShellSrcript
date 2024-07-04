@@ -158,7 +158,7 @@ Configure Routing and Remote Acecss:  <br/>
 5. Choose the NAT network interface, which is the internet-facing NIC that will translate the IP addresses of client machines on the internal virtual network and enable internet connectivity for them. Select 'Next' and then click 'Finish' in the setup wizard to complete the process. <br/>
 <img src="https://i.imgur.com/EgscLJb.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
 <br />
-6. Routing and Remote Access should now display a green up arrow on 'DC (local)' icon in the left sidebar indicating a successful configuration. *If the green up arrow is not shown, restart the Domain Controller.* <br/>
+6. Routing and Remote Access should now display a green up arrow on the 'DC (local)' icon in the left sidebar, indicating a successful configuration. If the green up arrow is not shown, restart the Domain Controller. <br/>
 <img src="https://i.imgur.com/lCUBa13.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
 <br />
 <br />
