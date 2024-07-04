@@ -139,18 +139,28 @@ Sign in with Active Directory Admin User Account:  <br/>
 <h2 align="center">Setup & Configure Routing and Remote Acecss</h2> <br/>
 <p align="center">
 Setup Routing and Remote Acecss:  <br/>
+The Routing and Remote Access service will perform NAT for client machines connected to the internal virtual network, facilitating connectivity to the global internet. Adding the Remote Access server role to the Domain Controller via Server Manager follows a process similar to the one used earlier for Active Directory Domain Services. <br/>
+1. Launch the 'Add Roles and Features Wizard', and continue clicking the 'Next' button until you reach the 'Server Roles' window. Then, select Remote Access and proceed by clicking 'Next' until the 'Add Features' button appears, then click it. <br/> 
 <img src="https://i.imgur.com/hKDUxqQ.png" height="80%" width="80%" alt="Setup Routing and Remote Acecss"/>
 <br />
+2. Verify that both the 'DirectAccess and VPN (RAS)' and 'Routing' services checkboxes are checked on the 'Role Services' window. To complete the process, click the 'Next' and 'Install' buttons when prompted. Close the 'Add Roles and Features Wizard' when the installation succeeded message appears on the 'Results' window. <br/>  
 <img src="https://i.imgur.com/yNVAXH4.png" height="80%" width="80%" alt="Setup Routing and Remote Acecss"/>
 <br />
+<br/> 
 Configure Routing and Remote Acecss:  <br/>
+3. Click the 'Tools' menu in the top right of Server Manager, then select 'Routing and Remote Access.' When launched, right-click 'DC (local)' in the left sidebar and select 'Configure and Enable Routing and Remote Access' from the menu. <br/>
 <img src="https://i.imgur.com/a2iVXVX.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
 <br />
+<br/>
+4. Select the 'Next' button in the setup wizard to proceed to to the 'Configuration' window. On this window choose 'Network address translation (NAT)' option and click 'Next'. <br/>
 <img src="https://i.imgur.com/xFsrTQS.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
 <br />
+5. Choose the NAT network interface, which is the internet-facing NIC that will translate the IP addresses of client machines on the internal virtual network and enable internet connectivity for them. Select 'Next' and then click 'Finish' in the setup wizard to complete the process. <br/>
 <img src="https://i.imgur.com/EgscLJb.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
 <br />
+6. Routing and Remote Access should now display a green up arrow on 'DC (local)' icon in the left sidebar indicating a successful configuration. *If the green up arrow is not shown, restart the Domain Controller.* <br/>
 <img src="https://i.imgur.com/lCUBa13.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+<br />
 <br />
 </p>
 <h2 align="center">Setup & Configure DHCP Server</h2> <br/>
