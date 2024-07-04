@@ -70,21 +70,26 @@ Setup Active Directory:  <br/>
 3. Choose the 'Active Directory Domain Services" and click 'Add Features'. <br/>
 <img src="https://i.imgur.com/u233j8R.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
-4. Continue clicking the 'Next' and 'Install' buttons when prompted until the installtion succeded message appears as shown below. Click 'Close' after to close out the window. <br/>
+4. Continue clicking the 'Next' and 'Install' buttons when prompted until the installation succeeded message appears as shown below. Click 'Close' after to close out the window. <br/>
 <img src="https://i.imgur.com/80TL8gk.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
+<br />
 Configure Active Directory:  <br/>
+5. To configure the Active Directory Domain Controller, click the alert menu icon with the yellow triangle exclamation in the top right of Server Manager, then select 'Promote this server to a domain controller' in the drop down menu. <br/>
 <img src="https://i.imgur.com/In78fkJ.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
+6. Enter the domain 'jamrocknation.com(any domain name can be used)' into the 'Root domain name' field as shown below, then click 'Next'.  <br/>
 <img src="https://i.imgur.com/Sn2HnQr.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
+7. Create a Directory Services Restore Mode password, then proceed to keep clicking 'Next' until the 'Install' button is no longer greyed out. <br/>
 <img src="https://i.imgur.com/2Z8FzMw.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
-<img src="https://i.imgur.com/s1NnPhI.png" height="80%" width="80%" alt="Configure Active Directory"/>
-<br />
+8. Click the 'Install' button to let the process begin. Once the server is configured, a prompt stating the server is being restarted because Active Directory was installed will appear. Select 'Close' on the prompt to let the server restart.
 <img src="https://i.imgur.com/3W4uwgM.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
+<br />
 Windows Login Screen To Sign Into Domain:  <br/>
+9. After the server is restarted, the login screen should appear as shown below, displaying the option to sign into the newly configured Active Directory Domain. Proceed to log in to the Domain. <br/>
 <img src="https://i.imgur.com/0CTkAPc.png" height="80%" width="80%" alt="Windows Login Screen To Sign Into Domain"/>
 </p>
 <h2 align="center">Create Organizational Unit & Active Directory Administrator User</h2>
