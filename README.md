@@ -95,29 +95,46 @@ Windows Login Screen To Sign Into Domain:  <br/>
 <h2 align="center">Create Organizational Unit & Active Directory Administrator User</h2>
 <p align="center">
 Create Organizational Unit:  <br/>
+Now that Active Directory is configured and deployed, creating an Organizational Unit for Domain adminstrator user accounts is next. <br/>
+1. Launch Active Directory Users and Computers via the Start Menu or Taskbar. Right click the domain in the left sidebar, then select New>Organizational Unit as shown in the image below. <br/>
 <img src="https://i.imgur.com/AQztRkV.png" height="80%" width="80%" alt="Create Organizational Unit"/>
 <br />
+2. Name the Organizational Unit following the format shown in the image below, then select the 'OK' button when finished. <br/>
 <img src="https://i.imgur.com/UY9vC6c.png" height="80%" width="80%" alt="Create Organizational Unit"/>
 <br />
-Create AD Admin User:  <br/>
+<br />
+Create Active Directory Admin User:  <br/>
+The next step is to create an Active Directory user with Domain administrator privileges in the newly created Organizational Unit. Having an Active Directory user account with Domain administrator rights will simplify configuring the remaining services and executing the PowerShell script to create over 1000 Active Directory user accounts.  <br/>
+3. Select the Orgnazational Unit that was just created in the left side bar, right click the white space on the right in the Organization Unit folder, then select New>User as shown in the image below. <br/>  
 <img src="https://i.imgur.com/vCD87N1.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
+4. Fill out the name and User logon name fields following the format shown in the image below. Click 'Next' to set the user account password, ensure the 'User must change password at next logon' checkbox is unchecked, and then click 'Next' > 'Finish' to complete the user account creation. <br/>
 <img src="https://i.imgur.com/b2gNln1.png" height="80%" width="80%" alt="Create AD Admin User">
 <br />
+5. The newly created user account shown now appear in the Organizational Unit folder on the right.  <br/>
 <img src="https://i.imgur.com/HSPyVo5.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
-Add AD Admin User To Domain Admin Group:  <br/>
-<img src="https://i.imgur.com/Hhe9AAE.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
+Add AD Admin User To Domain Admin Group:  <br/>
+With the user account created, it now needs to get added to the Domain Admin security group to have Domain adminstrator privileges. <br/>
+6. Right click the user account on the right in the Organizational Unit folder, then select 'Properties' as shown in the image below. <br/>
+<img src="https://i.imgur.com/Hhe9AAE.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
+<br/>
+7. Select the 'Member Of' tab in the user account properties window and then click the 'Add' button. <br/> 
 <img src="https://i.imgur.com/qCCingZ.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
+8. Enter 'Domain Admins' in the 'Enter the object name to select' field, select the 'Check Names' button, and then click 'OK'. <br/> 
 <img src="https://i.imgur.com/LKUm6v1.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
+9.'Domain Admins' should now appear under the 'Member Of' tab on the user account properties window. Close the user account properties window and Active Directory Users and Computers, then sign out of the current account. <br />
 <img src="https://i.imgur.com/EUD3L9r.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
-Sign In With AD Admin User:  <br/>
+<br />
+Sign in with Active Directory Admin User Account:  <br/>
+10. Sign in to the Domain Controller with the newly created Domain Admin user account. <br/>
 <img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
 </p>
+
 <h2 align="center">Setup & Configure Routing and Remote Acecss</h2> <br/>
 <p align="center">
 Setup Routing and Remote Acecss:  <br/>
