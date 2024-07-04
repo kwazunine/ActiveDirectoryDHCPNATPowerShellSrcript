@@ -176,7 +176,7 @@ Configure DHCP Server:  <br/>
 2. Access 'DHCP' from the 'Tools' menu in Server Manager. <br/>
 <img src="https://i.imgur.com/seXTEwa.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
-3. Right-click 'DC (local)' in the left sidebar and select 'New Scope' from the menu. <br/>
+3. Right-click 'IPv4' in the left sidebar and select 'New Scope' from the menu. <br/>
 <img src="https://i.imgur.com/7CZRq8x.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
 4. Click 'Next' in the setup wizard to proceed to the 'Scope Name' window. Enter '172.16.0.100-254' in the 'Name' field. This range represents the usable IP addresses that will be available to clients via DHCP on the internal virtual network's 172.16.0.0/24 subnet. <br/>
@@ -188,15 +188,20 @@ Configure DHCP Server:  <br/>
 6. Proceed to click the upcoming 'Next' buttons to get to the 'Router (Default Gateway)' window. '172.16.0.1' should be added in as the default gateway IP address as shown below in the image below. Select 'Next' after. <br/>
 <img src="https://i.imgur.com/M4ZWXBM.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
-7. On the 'Domain Name and DNS Servers' window, the 'Parent domain' and 'IP address' fields should populate with the information from the Domain Controller which is "jamrocknation.com' and '127.16.0.1' in this case. <br/>
+7. On the 'Domain Name and DNS Servers' window, the 'Parent domain' and 'IP address' fields should populate with the information from the Domain Controller, which is 'jamrocknation.com' and '172.16.0.1' in this case. Complete the remaining wizard steps by proceeding to click the upcoming 'Next' and 'Finish' buttons when prompted. <br/>
 <img src="https://i.imgur.com/mR6VBvZ.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+8. Now that the DHCP scope for the internal network clients is set, the Domain Controller must be 'Authorized' by right-clicking 'dc.jamrocknation.com' in the right sidebar and selecting 'Authorize'. <br/>
 <img src="https://i.imgur.com/1lMQFI7.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+9. Right-click 'dc.jamrocknation.com' in the right sidebar again and click 'Refresh'. <br/>
 <img src="https://i.imgur.com/97k8mgx.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+10. A green checkmark should now appear on the 'IPv4' server icon in the left sidebar, and the DHCP scope address pool should appear when 'IPv4' is expanded in the left sidebar, as depicted in the image below. <br/>
 <img src="https://i.imgur.com/I6doKYH.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
+<br />
+ 
 </p>
 <h2 align="center">Active Directory Organizational Unit & User Creation With PowerShell Script</h2> <br/>
 <p align="center">
@@ -223,6 +228,7 @@ PowerShell Script Results:  <br/>
 <img src="https://i.imgur.com/f800S1m.png" height="80%" width="80%" alt="PowerShell Script Results"/>
 <br />
 </p>
+
 <h2 align="center">Joining Windows 10 Client Machine To Active Directory Domain</h2> <br/>
 <p align="center">
 <br />
