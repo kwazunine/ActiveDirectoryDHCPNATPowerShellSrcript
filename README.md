@@ -61,12 +61,16 @@ Naming the Server:  <br/>
 <h2 align="center">Setup & Configure Active Directory</h2>
 <p align="center">
 Setup Active Directory:  <br/>
+1. Open Server Manager if it did not launch automatically after the server restart, then select the 'Manage' menu in the top right to choose 'Add Roles and Features'. <br/>
 <img src="https://i.imgur.com/m5rZLYn.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
+2. Proceed to click 'Next' until the 'Server Selection' window appears as shown below. Verify that the DC server is highlighted and click 'Next'. <br/>
 <img src="https://i.imgur.com/dalAdbJ.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
+3. Choose the 'Active Directory Domain Services" and click 'Add Features'. <br/>
 <img src="https://i.imgur.com/u233j8R.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
+4. Continue clicking the 'Next' and 'Install' buttons when prompted until the installtion succeded message appears as shown below. Click 'Close' after to close out the window. <br/>
 <img src="https://i.imgur.com/80TL8gk.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
 Configure Active Directory:  <br/>
