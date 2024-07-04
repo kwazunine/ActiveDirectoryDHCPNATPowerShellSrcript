@@ -61,16 +61,16 @@ Naming the Server:  <br/>
 <h2 align="center">Setup & Configure Active Directory</h2>
 <p align="center">
 Setup Active Directory:  <br/>
-1. Open Server Manager if it did not launch automatically after the server restart, then select the 'Manage' menu in the top right to choose 'Add Roles and Features'. <br/>
+1. Open Server Manager if it did not launch automatically after the server restart. Then, select the 'Manage' menu in the top right and choose 'Add Roles and Features'. <br/>
 <img src="https://i.imgur.com/m5rZLYn.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
-2. Proceed to click 'Next' until the 'Server Selection' window appears as shown below. Verify that the DC server is highlighted and click 'Next'. <br/>
+2. Proceed by clicking 'Next' until the 'Server Selection' window appears, as shown below. Verify that the 'DC' server is highlighted and click 'Next'. <br/>
 <img src="https://i.imgur.com/dalAdbJ.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
-3. Choose the 'Active Directory Domain Services" and click 'Add Features'. <br/>
+3. Choose the 'Active Directory Domain Services" role and click 'Add Features'. <br/>
 <img src="https://i.imgur.com/u233j8R.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
-4. Continue clicking the 'Next' and 'Install' buttons when prompted until the installation succeeded message appears as shown below. Click 'Close' after to close out the window. <br/>
+4. Continue clicking the 'Next' and 'Install' buttons as prompted until the installation succeeds. After the installation succeeds message appears, click 'Close' to close the window. <br/>
 <img src="https://i.imgur.com/80TL8gk.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
 <br />
@@ -89,49 +89,50 @@ Configure Active Directory:  <br/>
 <br />
 <br />
 Windows Login Screen To Sign Into Domain:  <br/>
-9. After the server is restarted, the login screen should appear as shown below, displaying the option to sign into the newly configured Active Directory Domain. Proceed to log in to the Domain. <br/>
+9. After the server restarts, the login screen should appear as depicted in the image below. It will display the option to sign into the newly configured Active Directory Domain. Proceed to log in to the Domain. <br/>
 <img src="https://i.imgur.com/0CTkAPc.png" height="80%" width="80%" alt="Windows Login Screen To Sign Into Domain"/>
 </p>
+
 <h2 align="center">Create Organizational Unit & Active Directory Administrator User</h2>
 <p align="center">
 Create Organizational Unit:  <br/>
-Now that Active Directory is configured and deployed, creating an Organizational Unit for Domain adminstrator user accounts is next. <br/>
-1. Launch Active Directory Users and Computers via the Start Menu or Taskbar. Right click the domain in the left sidebar, then select New>Organizational Unit as shown in the image below. <br/>
+Now that Active Directory is configured and deployed, the next step is to create an Organizational Unit for Domain administrator user accounts. <br/>
+1. Launch Active Directory Users and Computers via the Start Menu or Taskbar. Right-click the domain in the left sidebar, then select New>Organizational Unit as demonstrated in the image below. <br/>
 <img src="https://i.imgur.com/AQztRkV.png" height="80%" width="80%" alt="Create Organizational Unit"/>
 <br />
-2. Name the Organizational Unit following the format shown in the image below, then select the 'OK' button when finished. <br/>
+2. Name the Organizational Unit following the format shown in the image below, then click the 'OK' button when finished. <br/>
 <img src="https://i.imgur.com/UY9vC6c.png" height="80%" width="80%" alt="Create Organizational Unit"/>
 <br />
 <br />
 Create Active Directory Admin User:  <br/>
 The next step is to create an Active Directory user with Domain administrator privileges in the newly created Organizational Unit. Having an Active Directory user account with Domain administrator rights will simplify configuring the remaining services and executing the PowerShell script to create over 1000 Active Directory user accounts.  <br/>
-3. Select the Orgnazational Unit that was just created in the left side bar, right click the white space on the right in the Organization Unit folder, then select New>User as shown in the image below. <br/>  
+3. Select the Orgnazational Unit that was just created from the left side bar. Right-click the white space on the right side in the Organizational Unit folder, then select New>User as shown in the image below. <br/>  
 <img src="https://i.imgur.com/vCD87N1.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
 4. Fill out the name and User logon name fields following the format shown in the image below. Click 'Next' to set the user account password, ensure the 'User must change password at next logon' checkbox is unchecked, and then click 'Next' > 'Finish' to complete the user account creation. <br/>
 <img src="https://i.imgur.com/b2gNln1.png" height="80%" width="80%" alt="Create AD Admin User">
 <br />
-5. The newly created user account shown now appear in the Organizational Unit folder on the right.  <br/>
+5. The newly created user account shown now appears in the Organizational Unit folder on the right side.  <br/>
 <img src="https://i.imgur.com/HSPyVo5.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
 <br />
-Add AD Admin User To Domain Admin Group:  <br/>
-With the user account created, it now needs to get added to the Domain Admin security group to have Domain adminstrator privileges. <br/>
-6. Right click the user account on the right in the Organizational Unit folder, then select 'Properties' as shown in the image below. <br/>
+Add Active Directory Admin User to Domain Admin Group:  <br/>
+With the user account created, it now needs to be added to the Domain Admin security group to grant Domain administrator privileges. <br/>
+6. Right-click the user account on the right side in the Organizational Unit folder, then select 'Properties' as depicted  in the image below. <br/>
 <img src="https://i.imgur.com/Hhe9AAE.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br/>
-7. Select the 'Member Of' tab in the user account properties window and then click the 'Add' button. <br/> 
+7. Select the 'Member Of' tab in the user account properties window, then click the 'Add' button. <br/> 
 <img src="https://i.imgur.com/qCCingZ.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
-8. Enter 'Domain Admins' in the 'Enter the object name to select' field, select the 'Check Names' button, and then click 'OK'. <br/> 
+8. Enter 'Domain Admins' in the 'Enter the object names to select' field, click the 'Check Names' button to validate, and then click 'OK'. <br/> 
 <img src="https://i.imgur.com/LKUm6v1.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
-9.'Domain Admins' should now appear under the 'Member Of' tab on the user account properties window. Close the user account properties window and Active Directory Users and Computers, then sign out of the current account. <br />
+9. 'Domain Admins' should now appear under the 'Member Of' tab in the user account properties window. Close the user account properties window and Active Directory Users and Computers. Finally, sign out of the current account. <br />
 <img src="https://i.imgur.com/EUD3L9r.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
 <br />
 Sign in with Active Directory Admin User Account:  <br/>
-10. Sign in to the Domain Controller with the newly created Domain Admin user account. <br/>
+10. Sign in to the Domain Controller using the newly created Domain Admin user account. <br/>
 <img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
 </p>
 
