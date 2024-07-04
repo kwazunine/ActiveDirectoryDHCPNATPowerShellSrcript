@@ -24,26 +24,26 @@ The Windows Server 2019 Domain Controller will have two network interface cards 
 <br />
 </p>
 
-<h2 align="center">Network Adapters & Server Name Configuration</h2>
+<h2 align="center">Network Adapters and Server Name Configuration</h2>
 <p align="center">
 Domain Controller Oracle VM VirtualBox Adapter Settings: <br/>
-Before configuring the Windows Server 2019 Domain Controller, ensure that the Windows Server 2019 VM in Oracle VM VirtualBox has two network adapters enabled in its settings, as shown below. <br/>
+Before configuring the Windows Server 2019 Domain Controller, ensure that the Windows Server 2019 VM in Oracle VM VirtualBox has two network adapters enabled in its settings, as depicted in the images below.<br/>
 <img src="https://i.imgur.com/lk3QQ9P.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
 <img src="https://i.imgur.com/2rMfJ6L.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
 <br />
-Renaming Windows Server 2019 Windows Network Adapters:  <br/>
-Once logged into the Windows Server 2019 VM, both network adatpers shoould be renamed via the Windows Control Panel Netowrk Connections adapters. This will help with indetifying the correct network adapter when configuring NAT with the Routing and Remote Access service. <br/>
-1. Right click each network adapter and click rename. <br/>
+Renaming the Windows Server 2019 Windows Network Adapters:  <br/>
+Once logged into the Windows Server 2019 VM, both network adapters should be renamed via the Windows Control Panel's Network Connections. This will help in identifying the correct network adapter when configuring NAT with the Routing and Remote Access service. <br/>
+1. Right-click each network adapter and select 'Rename'. <br/>
 <img src="https://i.imgur.com/1icpK93.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
 <br />
-2. The 'Ethernet' network adapter should be renamed to 'NAT', as this will serve as the NAT NIC. The 'Ethernet 2' network adapter should be renamed to 'Internal,' as it will connect to the internal virtual network. <br/>
+2. Rename the 'Ethernet' network adapter to 'NAT,' as it will function as the NAT NIC. Rename the 'Ethernet 2' network adapter to 'Internal,' as it will connect to the internal virtual network. <br/>
 <img src="https://i.imgur.com/eAbEiXg.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
 <br />
 <br />
 Domain Controller Windows Internal Network Adapter Settings: <br/>
-3. Right click the 'Internal' network adapter, then choose Properties>Internet Protocol Version 4 (TCP/IPv4). Enter the following information into the Internet Protocol Version 4 (TCP/IPv4) Properties fields: <br/>
+3. Right-click the 'Internal' network adapter, then choose Properties > Internet Protocol Version 4 (TCP/IPv4). Enter the following information into the Internet Protocol Version 4 (TCP/IPv4) properties fields: <br/>
 '172.16.0.1' for the IP address. <br/>
 '255.255.255.0' for the Subnet mask. <br/>
 '127.0.0.1' for Preferred DNS server as the Domain Controller will provide DNS services. <br/>
@@ -52,7 +52,7 @@ Click 'OK' when finished. <br />
 <br />
 <br />
 Naming the Server:  <br/>
-4. Launch 'System Properteries' to rename the server to 'DC' via Settings>System>About>Advanced System Settings. Click the 'Computer Name' tab and select 'Change'. Enter 'DC' into the 'Computer name' field and then click 'OK'. Restart the server when prompted. <br />
+4. Launch 'System Properteries' via Settings>System>About>Advanced System Settings to rename the server to 'DC'. Click the 'Computer Name' tab, then select 'Change'. Enter 'DC' in the 'Computer name' field, then click 'OK'. Restart the server when prompted. <br />
 <img src="https://i.imgur.com/hZt8Ast.png" height="80%" width="80%" alt="Naming The Server "DC""/>
 <br />
 <br />
