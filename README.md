@@ -52,7 +52,7 @@ Click 'OK' when finished. <br />
 <br />
 <br />
 Naming the Server:  <br/>
-4. Launch 'System Properteries' via Settings>System>About>Advanced System Settings to rename the server to 'DC'. Click the 'Computer Name' tab, then select 'Change'. Enter 'DC' in the 'Computer name' field, then click 'OK'. Restart the server when prompted. <br />
+4. Launch 'System Properties' via Settings>System>About>Advanced System Settings to rename the server to 'DC'. Click the 'Computer Name' tab, then select 'Change'. Enter 'DC' in the 'Computer name' field, then click 'OK'. Restart the server when prompted. <br />
 <img src="https://i.imgur.com/hZt8Ast.png" height="80%" width="80%" alt="Naming The Server "DC""/>
 <br />
 <br />
