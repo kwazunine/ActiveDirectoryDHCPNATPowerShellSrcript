@@ -206,25 +206,37 @@ Configure DHCP Server:  <br/>
 <h2 align="center">Active Directory Organizational Unit & User Creation With PowerShell Script</h2> <br/>
 <p align="center">
 PowerShell Script Files:  <br/>
+Creating a large number of Active Directory user accounts is repetitive and time-consuming. Automating and simplifying this process can be achieved by utilizing a PowerShell script. <br/>
+1. As shown in the image below, the PowerShell script named '1_CREATE_USERS' will source the names of 1000+ users from the 'names' text file. <br/>
 <img src="https://i.imgur.com/lsv7aD1.png" height="80%" width="80%" alt="PowerShell Script Files"/>
 <br />
+2. The 'names' text file contains the first and last name of the users. <br/>
 <img src="https://i.imgur.com/slwtMpH.png" height="80%" width="80%" alt="PowerShell Script Files"/>
 <br />
+3. Examining the PowerShell script below, the code shows that a password 'Change2YourOwn!' will be set for all user accounts, a new Active Directory Organizational Unit 'JamRockNationUsers' will be created, and the user accounts will be added to the 'JamRockNationUsers' Organizational Unit. <br/>
+<a href="https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1">PowerShell Script Code Source</a> <br/>
 <img src="https://i.imgur.com/wPR2E3F.png" height="80%" width="80%" alt="PowerShell Script Files"/>
 <br />
-Running PowerShell Script With Windows PowerShell ISE:  <br/>
+<br />
+Running PowerShell Script with Windows PowerShell ISE:  <br/>
+4. Launch 'Windows PowerShell ISE' as an administrator, open the '1_CREATE_USERS' script in PowerShell ISE, and navigate to the '1_CREATE_USERS' folder location using the PowerShell command line, as illustrated in the image below. <br/>
 <img src="https://i.imgur.com/SLegKFL.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
 <br />
+5. Enter the 'Set-ExecutionPolicy Unrestricted' cmdlet in the Windows PowerShell ISE command line to enable the ability to run the script. <br/>
 <img src="https://i.imgur.com/Fc8ADLA.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
 <br />
+6. Next, press the green triangle 'Run' button in the Windows PowerShell ISE menu at the top to execute the script. The Windows PowerShell ISE command line should then begin displaying the user accounts being created. <br/> 
 <img src="https://i.imgur.com/1aq0vHx.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
 <br />
+7. Once the script finishes running, 'Completed' should appear in the lower left corner of the Windows PowerShell ISE window. <br/> 
 <img src="https://i.imgur.com/5gSGCtm.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
 <br />
+<br /> 
 PowerShell Script Results:  <br/>
-<br />
+8. Now lets verify the results of the PowerShell script. Open 'Active Directory Users and Computers' where the 'JamRockNationUsers' Organizational Unit should now appear in the left sidebar under the 'jamrocknation.com' Domain. As shown below, it does! <br/>  
 <img src="https://i.imgur.com/v05aqVS.png" height="80%" width="80%" alt="PowerShell Script Results"/>
 <br />
+9. Right-clicking the 'jamrocknation.com' Domain in the left sidebar and selecting 'Find' launches the 'Find Users, Contacts, and Groups' window. Observing the lower left of the window shows that 1053 items have been found, indicating that there are now 1000+ Active Directory user accounts on the Domain. <br/>
 <img src="https://i.imgur.com/f800S1m.png" height="80%" width="80%" alt="PowerShell Script Results"/>
 <br />
 </p>
