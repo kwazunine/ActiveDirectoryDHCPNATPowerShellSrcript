@@ -8,21 +8,24 @@ This walkthrough covers deploying Active Directory in an on-premises environment
 
 - <b>Active Directory</b>
 - <b>DHCP</b>
-- <b>Oracle VM VirtualBox</b>
+- <b>Oracle VM VirtualBox</b> (Virtual Machines (VM))
 - <b>Windows PowerShell ISE</b>
 - <b>Routing and Remote Access</b> 
 
-<h2>Operating Systems Used </h2>
+<h2>Operating Systems Used</h2>
 
 - <b>Windows 10 Enterprise</b> (21H2)
 - <b>Windows Server 2019</b>
 
-<h2 align="center">Environment Map</h2>
-<p align="center">
-The Windows Server 2019 Domain Controller will have two network interface cards (NICs). One NIC (NAT) connects to the global internet, while the other NIC (Internal) connects to the internal virtual network. The domain will be 'jamrocknation.com', the internal virtual network IP address subnet will be '172.16.0.0/24', and the Domain Controller will provide DHCP, DNS, and NAT services for clients connected to the internal virtual network. <br />
+<h2>Operating Systems Used</h2>
+
+- <b>Windows 10 Enterprise</b> (21H2)
+- <b>Windows Server 2019</b>
+
+<h2>Environment Map & Overview</h2>
 <img src="https://i.imgur.com/5NBo7w5.png" height="100%" width="100%" alt="Environment Map"/>
+The Windows Server 2019 Domain Controller will have two network interface cards (NICs). One NIC (NAT) connects to the global internet, while the other NIC (Internal) connects to the internal virtual network. The domain will be 'jamrocknation.com', the internal virtual network IP address subnet will be '172.16.0.0/24', and the Domain Controller will provide DHCP, DNS, and NAT services for clients connected to the internal virtual network. <br />
 <br />
-</p>
 
 <h2 align="center">Network Adapters and Server Name Configuration</h2>
 
