@@ -1,7 +1,7 @@
 <h1>Active Directory PowerShell User Creation | DHCP | NAT</h1>
 
 <h2>Description</h2>
-This walkthrough covers deploying Active Directory in an on-premises environment, configuring Network Address Translation (NAT) and Dynamic Host Configuration Protocol (DHCP) for domain client computers to get connected to the internet, and utilizing a PowerShell script to create over 1000 users in Active Directory.
+This walkthrough covers deploying Active Directory in an on-premises environment, configuring Network Address Translation (NAT) and Dynamic Host Configuration Protocol (DHCP) for clients to get connected to the internet, and utilizing a PowerShell script to create over 1000 users in Active Directory.
 <br />
 
 <h2>Technologies & Utilities Used</h2>
@@ -9,7 +9,7 @@ This walkthrough covers deploying Active Directory in an on-premises environment
 - <b>Active Directory</b>
 - <b>DHCP</b>
 - <b>Oracle VM VirtualBox</b>
-- <b>PowerShell</b>
+- <b>PowerShell ISE</b>
 - <b>Routing and Remote Access</b> 
 
 <h2>Operating Systems Used </h2>
@@ -19,21 +19,21 @@ This walkthrough covers deploying Active Directory in an on-premises environment
 
 <h2 align="center">Environment Map</h2>
 <p align="center">
-The Windows Server 2019 Domain Controller will have two network interface cards (NICs). One NIC (NAT) connects directly to the global internet, while the other NIC (Internal) connects to the internal virtual network. The domain will be 'jamrocknation.com', the internal IP address subnet will be '172.16.0.0/24', and the Domain Controller will provide DHCP, DNS, and NAT services for client machines connected to the internal network. <br />
+The Windows Server 2019 Domain Controller will have two network interface cards (NICs). One NIC (NAT) connects to the global internet, while the other NIC (Internal) connects to the internal virtual network. The domain will be 'jamrocknation.com', the internal virtual network IP address subnet will be '172.16.0.0/24', and the Domain Controller will provide DHCP, DNS, and NAT services for clients connected to the internal virtual network. <br />
 <img src="https://i.imgur.com/5NBo7w5.png" height="100%" width="100%" alt="Environment Map"/>
 <br />
 </p>
 
 <h2 align="center">Network Adapters and Server Name Configuration</h2>
 <p align="center">
-Domain Controller Oracle VM VirtualBox Adapter Settings: <br/>
-Before configuring the Windows Server 2019 Domain Controller, ensure that the Windows Server 2019 VM in Oracle VM VirtualBox has two network adapters enabled in its settings, as depicted in the images below.<br/>
+Windows Server 2019 Oracle VM VirtualBox Adapter Settings: <br/>
+Before configuring the Windows Server 2019 VM, ensure that the VM in Oracle VM VirtualBox has two network adapters enabled in its settings, as depicted in the images below.<br/>
 <img src="https://i.imgur.com/lk3QQ9P.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
 <img src="https://i.imgur.com/2rMfJ6L.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
 <br />
-Renaming the Windows Server 2019 Windows Network Adapters:  <br/>
+Renaming the Windows Windows Server 2019 Network Adapters:  <br/>
 Once logged into the Windows Server 2019 VM, both network adapters should be renamed via the Windows Control Panel's Network Connections. This will help in identifying the correct network adapter when configuring NAT with the Routing and Remote Access service. <br/>
 1. Right-click each network adapter and select 'Rename'. <br/>
 <img src="https://i.imgur.com/1icpK93.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
@@ -42,7 +42,7 @@ Once logged into the Windows Server 2019 VM, both network adapters should be ren
 <img src="https://i.imgur.com/eAbEiXg.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
 <br />
 <br />
-Domain Controller Windows Internal Network Adapter Settings: <br/>
+Windows Server 2019 Internal Network Adapter Settings: <br/>
 3. Right-click the 'Internal' network adapter, then choose Properties > Internet Protocol Version 4 (TCP/IPv4). Enter the following information into the Internet Protocol Version 4 (TCP/IPv4) properties fields: <br/>
 '172.16.0.1' for the IP address. <br/>
 '255.255.255.0' for the Subnet mask. <br/>
@@ -61,10 +61,10 @@ Naming the Server:  <br/>
 <h2 align="center">Setup & Configure Active Directory</h2>
 <p align="center">
 Setup Active Directory:  <br/>
-1. Open Server Manager if it did not launch automatically after the server restart. Then, select the 'Manage' menu in the top right and choose 'Add Roles and Features'. <br/>
+1. Open 'Server Manager' if it did not launch automatically after the server restart. Then, select the 'Manage' menu in the top right and choose 'Add Roles and Features'. <br/>
 <img src="https://i.imgur.com/m5rZLYn.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
-2. Proceed by clicking 'Next' until the 'Server Selection' window appears, as shown below. Verify that the 'DC' server is highlighted and click 'Next'. <br/>
+2. Proceed by clicking 'Next' until the 'Server Selection' window appears, as shown below. Verify that 'DC' is highlighted and click 'Next'. <br/>
 <img src="https://i.imgur.com/dalAdbJ.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
 3. Choose the 'Active Directory Domain Services" role and click 'Add Features'. <br/>
@@ -78,26 +78,26 @@ Configure Active Directory:  <br/>
 5. To configure the Active Directory Domain Controller, click the alert menu icon with the yellow triangle exclamation in the top right of Server Manager, then select 'Promote this server to a domain controller' in the drop down menu. <br/>
 <img src="https://i.imgur.com/In78fkJ.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
-6. Enter the domain 'jamrocknation.com(any domain name can be used)' into the 'Root domain name' field as shown below, then click 'Next'.  <br/>
+6. Enter the domain 'jamrocknation.com'(any domain name can be used) into the 'Root domain name' field as shown below, then click 'Next'.  <br/>
 <img src="https://i.imgur.com/Sn2HnQr.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
-7. Create a Directory Services Restore Mode password, then proceed to keep clicking 'Next' until the 'Install' button is no longer greyed out. <br/>
+7. Create a Directory Services Restore Mode password, then proceed by clicking 'Next' until the 'Install' button is no longer greyed out. <br/>
 <img src="https://i.imgur.com/2Z8FzMw.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
 8. Click the 'Install' button to let the process begin. Once the server is configured, a prompt stating the server is being restarted because Active Directory was installed will appear. Select 'Close' on the prompt to let the server restart.
 <img src="https://i.imgur.com/3W4uwgM.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
 <br />
-Windows Login Screen To Sign Into Domain:  <br/>
-9. After the server restarts, the login screen should appear as depicted in the image below. It will display the option to sign into the newly configured Active Directory Domain. Proceed to log in to the Domain. <br/>
+Windows Login Screen to Login to the Domain:  <br/>
+9. After the server restarts, the login screen should appear as depicted in the image below. It will display the option to sign into the newly configured Active Directory Domain Controller. Proceed to log in to the Domain Controller. <br/>
 <img src="https://i.imgur.com/0CTkAPc.png" height="80%" width="80%" alt="Windows Login Screen To Sign Into Domain"/>
 </p>
 
-<h2 align="center">Create Organizational Unit & Active Directory Administrator User</h2>
+<h2 align="center">Create Organizational Unit and Active Directory Administrator User</h2>
 <p align="center">
 Create Organizational Unit:  <br/>
 Now that Active Directory is configured and deployed, the next step is to create an Organizational Unit for Domain administrator user accounts. <br/>
-1. Launch Active Directory Users and Computers via the Start Menu or Taskbar. Right-click the domain in the left sidebar, then select New>Organizational Unit as demonstrated in the image below. <br/>
+1. Launch 'Active Directory Users and Computers'. Right-click the domain name in the left sidebar, then select 'New' > 'Organizational Unit' as demonstrated in the image below. <br/>
 <img src="https://i.imgur.com/AQztRkV.png" height="80%" width="80%" alt="Create Organizational Unit"/>
 <br />
 2. Name the Organizational Unit following the format shown in the image below, then click the 'OK' button when finished. <br/>
@@ -106,40 +106,40 @@ Now that Active Directory is configured and deployed, the next step is to create
 <br />
 Create Active Directory Admin User:  <br/>
 The next step is to create an Active Directory user with Domain administrator privileges in the newly created Organizational Unit. Having an Active Directory user account with Domain administrator rights will simplify configuring the remaining services and executing the PowerShell script to create over 1000 Active Directory user accounts.  <br/>
-3. Select the Orgnazational Unit that was just created from the left side bar. Right-click the white space on the right side in the Organizational Unit folder, then select New>User as shown in the image below. <br/>  
+3. Select the Orgnazational Unit that was just created from the left sidebar. Right-click the white space on the right side in the Organizational Unit folder, then select 'New' > 'User' as shown in the image below. <br/>  
 <img src="https://i.imgur.com/vCD87N1.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
-4. Fill out the name and User logon name fields following the format shown in the image below. Click 'Next' to set the user account password, ensure the 'User must change password at next logon' checkbox is unchecked, and then click 'Next' > 'Finish' to complete the user account creation. <br/>
+4. Fill out the name and user logon name fields following the format shown in the image below. Click 'Next' to set the password, ensure the 'User must change password at next logon' checkbox is unchecked, and then click 'Next' > 'Finish' to complete the user creation. <br/>
 <img src="https://i.imgur.com/b2gNln1.png" height="80%" width="80%" alt="Create AD Admin User">
 <br />
-5. The newly created user account shown now appears in the Organizational Unit folder on the right side.  <br/>
+5. The newly created user now appears in the Organizational Unit folder on the right side.  <br/>
 <img src="https://i.imgur.com/HSPyVo5.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
 <br />
 Add Active Directory Admin User to Domain Admin Group:  <br/>
-With the user account created, it now needs to be added to the Domain Admin security group to grant Domain administrator privileges. <br/>
-6. Right-click the user account on the right side in the Organizational Unit folder, then select 'Properties' as depicted  in the image below. <br/>
+With the user created, the user now needs to be added to the 'Domain Admins' security group to grant Domain administrator privileges. <br/>
+6. Right-click the user on the right side in the Organizational Unit folder, then select 'Properties' as depicted in the image below. <br/>
 <img src="https://i.imgur.com/Hhe9AAE.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br/>
-7. Select the 'Member Of' tab in the user account properties window, then click the 'Add' button. <br/> 
+7. Select the 'Member Of' tab in the user properties window, then click the 'Add' button. <br/> 
 <img src="https://i.imgur.com/qCCingZ.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
 8. Enter 'Domain Admins' in the 'Enter the object names to select' field, click the 'Check Names' button to validate, and then click 'OK'. <br/> 
 <img src="https://i.imgur.com/LKUm6v1.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
-9. 'Domain Admins' should now appear under the 'Member Of' tab in the user account properties window. Close the user account properties window and Active Directory Users and Computers. Finally, sign out of the current account. <br />
+9. 'Domain Admins' should now appear under the 'Member Of' tab in the user account properties window. Close the user properties window and Active Directory Users and Computers. Finally, sign out of the Domain Controller. <br />
 <img src="https://i.imgur.com/EUD3L9r.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
 <br />
 Sign in with Active Directory Admin User Account:  <br/>
-10. Sign in to the Domain Controller using the newly created Domain Admin user account. <br/>
+10. Sign in to the Domain Controller with the newly created Domain Admin user. <br/>
 <img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
 </p>
 
-<h2 align="center">Setup & Configure Routing and Remote Acecss</h2> <br/>
+<h2 align="center">Setup and Configure Routing and Remote Acecss</h2> <br/>
 <p align="center">
 Setup Routing and Remote Acecss:  <br/>
-The Routing and Remote Access service will perform NAT for client machines connected to the internal virtual network, facilitating connectivity to the global internet. Adding the Remote Access server role to the Domain Controller via Server Manager follows a process similar to the one used earlier for Active Directory Domain Services. <br/>
+The 'Routing and Remote Access' service will perform NAT for clients connected to the internal virtual network, facilitating connectivity to the global internet. Adding the 'Remote Access' server role to the Domain Controller via Server Manager follows a process similar to what was done with Active Directory Domain Services earlier.<br/>
 1. Launch the 'Add Roles and Features Wizard', and continue clicking the 'Next' button until you reach the 'Server Roles' window. Then, select Remote Access and proceed by clicking 'Next' until the 'Add Features' button appears, then click it. <br/> 
 <img src="https://i.imgur.com/hKDUxqQ.png" height="80%" width="80%" alt="Setup Routing and Remote Acecss"/>
 <br />
@@ -168,12 +168,12 @@ Configure Routing and Remote Acecss:  <br/>
 <p align="center">
 Setup DHCP Server:  <br/>
 The DHCP Server will automatically assign IP addresses to client machines on the internal virtual network from a range of IP addresses defined in the DHCP pool. <br/>
-1. Open the 'Add Roles and Features Wizard' again and proceed to the 'Server Roles' window. No additional options are required in the wizard, so select DHCP Server and proceed through the prompts to add and install the DHCP Server features. Close the 'Add Roles and Features Wizard' once the installation is complete. <br/>
+1. Open the Add Roles and Features Wizard again and proceed to the Server Roles window. No additional options are required to be selected, so select 'DHCP Server' and proceed through the prompts to add and install the DHCP Server features. Close the Add Roles and Features Wizard once the installation is complete. <br/>
 <img src="https://i.imgur.com/YUH8syg.png" height="80%" width="80%" alt="Setup DHCP Server"/>
 <br />
 <br /> 
 Configure DHCP Server:  <br/>
-2. Access 'DHCP' from the 'Tools' menu in Server Manager. <br/>
+2. Access 'DHCP' from the Tools menu in Server Manager. <br/>
 <img src="https://i.imgur.com/seXTEwa.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
 3. Right-click 'IPv4' in the left sidebar and select 'New Scope' from the menu. <br/>
@@ -191,10 +191,10 @@ Configure DHCP Server:  <br/>
 7. On the 'Domain Name and DNS Servers' window, the 'Parent domain' and 'IP address' fields should populate with the information from the Domain Controller, which is 'jamrocknation.com' and '172.16.0.1' in this case. Complete the remaining wizard steps by proceeding to click the upcoming 'Next' and 'Finish' buttons when prompted. <br/>
 <img src="https://i.imgur.com/mR6VBvZ.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
-8. Now that the DHCP scope for the internal network clients is set, the Domain Controller must be 'Authorized' by right-clicking 'dc.jamrocknation.com' in the right sidebar and selecting 'Authorize'. <br/>
+8. Now that the DHCP scope for the internal network clients is set, the Domain Controller must be authorized by right-clicking the Domain Controller 'dc.jamrocknation.com' in the right sidebar and selecting 'Authorize'. <br/>
 <img src="https://i.imgur.com/1lMQFI7.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
-9. Right-click 'dc.jamrocknation.com' in the right sidebar again, then click 'Refresh'. <br/>
+9. Right-click the Domain Controller 'dc.jamrocknation.com' in the right sidebar again, then click 'Refresh'. <br/>
 <img src="https://i.imgur.com/97k8mgx.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
 10. A green checkmark should now appear on the 'IPv4' server icon in the left sidebar, and the DHCP scope address pool should appear when 'IPv4' is expanded in the left sidebar, as depicted in the image below. <br/>
@@ -206,20 +206,20 @@ Configure DHCP Server:  <br/>
 <h2 align="center">Active Directory Organizational Unit & User Creation With PowerShell Script</h2> <br/>
 <p align="center">
 PowerShell Script Files:  <br/>
-Creating a large number of Active Directory user accounts is repetitive and time-consuming. Automating and simplifying this process can be achieved by utilizing a PowerShell script. <br/>
+Creating a large number of Active Directory users is repetitive and time-consuming. Automating and simplifying this process can be achieved by utilizing a PowerShell script. <br/>
 1. As shown in the image below, the PowerShell script named '1_CREATE_USERS' will source the names of 1000+ users from the 'names' text file. <br/>
 <img src="https://i.imgur.com/lsv7aD1.png" height="80%" width="80%" alt="PowerShell Script Files"/>
 <br />
 2. The 'names' text file contains the first and last name of the users. <br/>
 <img src="https://i.imgur.com/slwtMpH.png" height="80%" width="80%" alt="PowerShell Script Files"/>
 <br />
-3. Examining the PowerShell script below, the code shows that a password 'Change2YourOwn!' will be set for all user accounts, a new Active Directory Organizational Unit 'JamRockNationUsers' will be created, and the user accounts will be added to the 'JamRockNationUsers' Organizational Unit. <br/>
+3. Examining the PowerShell script below, the code shows that a password 'Change2YourOwn!' will be set for all users, a new Active Directory Organizational Unit 'JamRockNationUsers' will be created, and the users will be added to the 'JamRockNationUsers' Organizational Unit. <br/>
 <a href="https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1">PowerShell Script Code Source</a> <br/>
 <img src="https://i.imgur.com/wPR2E3F.png" height="80%" width="80%" alt="PowerShell Script Files"/>
 <br />
 <br />
 Running PowerShell Script with Windows PowerShell ISE:  <br/>
-4. Launch 'Windows PowerShell ISE' as an administrator, open the '1_CREATE_USERS' script in PowerShell ISE, and navigate to the '1_CREATE_USERS' folder location using the PowerShell command line, as illustrated in the image below. <br/>
+4. Launch 'Windows PowerShell ISE' as an administrator, open the '1_CREATE_USERS' script in Windows PowerShell ISE, and navigate to the '1_CREATE_USERS' folder location using the Windows PowerShell ISE command line, as illustrated in the image below. <br/>
 <img src="https://i.imgur.com/SLegKFL.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
 <br />
 5. Enter the 'Set-ExecutionPolicy Unrestricted' cmdlet in the Windows PowerShell ISE command line to enable the ability to run the script. <br/>
@@ -233,10 +233,10 @@ Running PowerShell Script with Windows PowerShell ISE:  <br/>
 <br />
 <br /> 
 PowerShell Script Results:  <br/>
-8. Now lets verify the results of the PowerShell script. Open 'Active Directory Users and Computers' where the 'JamRockNationUsers' Organizational Unit should now appear in the left sidebar under the 'jamrocknation.com' Domain. As shown below, it does! <br/>  
+8. Now lets verify the results of the PowerShell script. Open Active Directory Users and Computers where the 'JamRockNationUsers' Organizational Unit should now appear in the left sidebar under the domain 'jamrocknation.com'. As shown below, it does! <br/>  
 <img src="https://i.imgur.com/v05aqVS.png" height="80%" width="80%" alt="PowerShell Script Results"/>
 <br />
-9. Right-clicking the 'jamrocknation.com' Domain in the left sidebar and selecting 'Find' launches the 'Find Users, Contacts, and Groups' window. Observing the lower left of the window shows that 1053 items have been found, indicating that there are now 1000+ Active Directory user accounts on the Domain. <br/>
+9. Right-clicking the domain 'jamrocknation.com' in the left sidebar and selecting 'Find' launches the 'Find Users, Contacts, and Groups' window. Observing the lower left of the window shows that 1053 items have been found, indicating that there are now 1000+ Active Directory users. <br/>
 <img src="https://i.imgur.com/f800S1m.png" height="80%" width="80%" alt="PowerShell Script Results"/>
 <br />
 </p>
