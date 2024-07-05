@@ -25,15 +25,19 @@ The Windows Server 2019 Domain Controller will have two network interface cards 
 </p>
 
 <h2 align="center">Network Adapters and Server Name Configuration</h2>
+
+<h3 align="center">Windows Server 2019 Oracle VM VirtualBox Adapter Settings:</h3>
 <p align="center">
-Windows Server 2019 Oracle VM VirtualBox Adapter Settings: <br/>
 Before configuring the Windows Server 2019 VM, ensure that the VM in Oracle VM VirtualBox has two network adapters enabled in its settings, as depicted in the images below.<br/>
 <img src="https://i.imgur.com/lk3QQ9P.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
 <img src="https://i.imgur.com/2rMfJ6L.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
 <br />
-Renaming the Windows Server 2019 Network Adapters:  <br/>
+</p>
+
+<h3 align="center">Renaming the Windows Server 2019 Network Adapters:</h3>
+<p align="center">
 Once logged into the Windows Server 2019 VM, both network adapters should be renamed via the Windows Control Panel's Network Connections. This will help in identifying the correct network adapter when configuring NAT with the Routing and Remote Access service. <br/>
 1. Right-click each network adapter and select 'Rename'. <br/>
 <img src="https://i.imgur.com/1icpK93.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
@@ -42,7 +46,10 @@ Once logged into the Windows Server 2019 VM, both network adapters should be ren
 <img src="https://i.imgur.com/eAbEiXg.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
 <br />
 <br />
-Windows Server 2019 Internal Network Adapter Settings: <br/>
+</p>
+
+<h3 align="center">Windows Server 2019 Internal Network Adapter Settings:</h3>
+<p align="center">
 3. Right-click the 'Internal' network adapter, then choose Properties > Internet Protocol Version 4 (TCP/IPv4). Enter the following information into the Internet Protocol Version 4 (TCP/IPv4) properties fields: <br/>
 '172.16.0.1' for the IP address. <br/>
 '255.255.255.0' for the Subnet mask. <br/>
@@ -51,7 +58,10 @@ Click 'OK' when finished. <br />
 <img src="https://i.imgur.com/wUdOh55.png" height="80%" width="80%" alt="Domain Controller Windows Internal Network Adapter Settings"/>
 <br />
 <br />
-Naming the Server:  <br/>
+</p>
+
+<h3 align="center">Naming the Server:</h3>
+<p align="center">
 4. Launch 'System Properties' via Settings>System>About>Advanced System Settings to rename the server to 'DC'. Click the 'Computer Name' tab, then select 'Change'. Enter 'DC' in the 'Computer name' field, then click 'OK'. Restart the server when prompted. <br />
 <img src="https://i.imgur.com/hZt8Ast.png" height="80%" width="80%" alt="Naming The Server "DC""/>
 <br />
@@ -59,8 +69,9 @@ Naming the Server:  <br/>
 </p>
 
 <h2 align="center">Setup & Configure Active Directory</h2>
+
+<h3 align="center">Setup Active Directory:</h3>
 <p align="center">
-Setup Active Directory:  <br/>
 1. Open 'Server Manager' if it did not launch automatically after the server restart. Then, select the 'Manage' menu in the top right and choose 'Add Roles and Features'. <br/>
 <img src="https://i.imgur.com/m5rZLYn.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
@@ -74,7 +85,10 @@ Setup Active Directory:  <br/>
 <img src="https://i.imgur.com/80TL8gk.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
 <br />
-Configure Active Directory:  <br/>
+</p>
+
+<h3 align="center">Configure Active Directory:</h3>
+<p align="center">
 5. To configure the Active Directory Domain Controller, click the alert menu icon with the yellow triangle exclamation in the top right of Server Manager, then select 'Promote this server to a domain controller' in the drop down menu. <br/>
 <img src="https://i.imgur.com/In78fkJ.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
@@ -88,9 +102,14 @@ Configure Active Directory:  <br/>
 <img src="https://i.imgur.com/3W4uwgM.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
 <br />
-Windows Login Screen to Login to the Domain:  <br/>
+</p>
+
+<h3 align="center">Windows Login Screen to Login to the Domain:</h3>
+<p align="center">
 9. After the server restarts, the login screen should appear as depicted in the image below. It will display the option to sign into the newly configured Active Directory Domain Controller. Proceed to log in to the Domain Controller. <br/>
 <img src="https://i.imgur.com/0CTkAPc.png" height="80%" width="80%" alt="Windows Login Screen To Sign Into Domain"/>
+<br />
+<br />
 </p>
 
 <h2 align="center">Create Organizational Unit and Active Directory Administrator User</h2>
