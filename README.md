@@ -9,7 +9,7 @@ This walkthrough covers deploying Active Directory in an on-premises environment
 - <b>Active Directory</b>
 - <b>DHCP</b>
 - <b>Oracle VM VirtualBox</b>
-- <b>PowerShell ISE</b>
+- <b>Windows PowerShell ISE</b>
 - <b>Routing and Remote Access</b> 
 
 <h2>Operating Systems Used </h2>
@@ -244,21 +244,30 @@ PowerShell Script Results:  <br/>
 <h2 align="center">Joining Windows 10 Client Machine To Active Directory Domain</h2> <br/>
 <p align="center">
 <br />
-Renaming Windows 10 Client Machine & Joining Windows 10 Client Machine To Active Directory Domain:  <br/>
-<img src="https://i.imgur.com/10ghrQx.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+Renaming Windows 10 Client Machine and Joining Active Directory Domain Controller:  <br/>
+With Active Directory deployed, DHCP and Routing and Remote Access services running on the Domain Controller, and over 1000 users created with a PowerShell script, joining a newly deployed Windows 10 Enterprise VM client to the Domain Controller will facilitate validation that everything is working as expected. <br/>
+1. After logging into the Windows 10 client, open 'System Properties', navigate to the 'Computer Name' tab, and click the 'Change' button. In the 'Computer Name/Domain Changes' window, enter 'WS1' in the 'Computer name:' field, select the 'Domain' radio button, enter the domain name 'jamrocknation.com' in the 'Domain:' field, and click 'OK'. <br/>
+<img src="https://i.imgur.com/10ghrQx.png" height="80%" width="80%" alt="Windows 10 Client Rename & Joining Active Directory Domain"/>
 <br />
-<img src="https://i.imgur.com/3XuHhV4.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+2. Enter the Active Directory administrator username and password into the 'Windows Security' prompt, as shown in the image below, then click the 'OK' button. <br/>
+<img src="https://i.imgur.com/3XuHhV4.png" height="80%" width="80%" alt="Windows 10 Client Rename & Joining Active Directory Domain"/>
 <br />
-<img src="https://i.imgur.com/DU4v01l.png" height="80%" width="80%" alt="PowerShell Script Files"/>
+3. Click 'OK' on the 'Welcome to the domain' message. Next, restart the Windows 10 client. <br/>
+<img src="https://i.imgur.com/DU4v01l.png" height="80%" width="80%" alt="Windows 10 Client Rename & Joining Active Directory Domain"/>
 <br />
+<br /> 
 Sign Into Windows 10 Client Machine With PowerShell Script Active Directory Created User  <br/>
-<img src="https://i.imgur.com/u1Ew5H4.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+4. At the Windows 10 client login screen, log in with one of the Active Directory users created by the PowerShell script. <br/>
+<img src="https://i.imgur.com/u1Ew5H4.png" height="80%" width="80%" alt="Windows 10 Client Login Screen To Sign Into Domain"/>
 <br />
-<img src="https://i.imgur.com/ukECN6v.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+5. Launch a 'Command Prompt' window on the Windows 10 client and enter 'whoami' to verify the Active Directory user logged in. Next, execute 'ipconfig' to confirm assignment of an IP address '172.16.0.100' from the DHCP service on the Domain Controller. Afterward, enter 'ping 8.8.8.8' to verify internet connectivity to the global internet, checking the echo replies from Google DNS servers confirms a successful connection! <br/>
+<img src="https://i.imgur.com/ukECN6v.png" height="80%" width="80%" alt="Verifying AD User DHCP Internet Connectivity"/>
 <br />
-<img src="https://i.imgur.com/AKS89Fl.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+6. Contiung validation, launch Active Directory Users and Computers on the Domain Controller. Select 'Computers' from the left sidebar where the Windows 10 client 'WS1' should be listed. <br /> 
+<img src="https://i.imgur.com/AKS89Fl.png" height="80%" width="80%" alt="Verifying Windows 10 Client Joined Active Directory Domain"/>
 <br />
-<img src="https://i.imgur.com/2933q2p.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
+7. Finally, on the Domain Controller, open DHCP and navigate to 'Address Leases' in the left sidebar. The assigned IP address and DHCP lease details for the Windows 10 client should be displayed, confirming proper functionality. <br /> 
+<img src="https://i.imgur.com/2933q2p.png" height="80%" width="80%" alt="Verifying Windows 10 Client DHCP Lease"/>
 <br />
 </p>
 
