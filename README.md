@@ -33,7 +33,6 @@ Before configuring the Windows Server 2019 VM, ensure that the VM in Oracle VM V
 <br />
 <img src="https://i.imgur.com/2rMfJ6L.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
-<br />
 </p>
 
 <h3 align="center">Renaming the Windows Server 2019 Network Adapters:</h3>
@@ -44,7 +43,6 @@ Once logged into the Windows Server 2019 VM, both network adapters should be ren
 <br />
 2. Rename the 'Ethernet' network adapter to 'NAT,' as it will function as the NAT NIC. Rename the 'Ethernet 2' network adapter to 'Internal,' as it will connect to the internal virtual network. <br/>
 <img src="https://i.imgur.com/eAbEiXg.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
-<br />
 <br />
 </p>
 
@@ -57,14 +55,12 @@ Once logged into the Windows Server 2019 VM, both network adapters should be ren
 Click 'OK' when finished. <br />
 <img src="https://i.imgur.com/wUdOh55.png" height="80%" width="80%" alt="Domain Controller Windows Internal Network Adapter Settings"/>
 <br />
-<br />
 </p>
 
 <h3 align="center">Naming the Server:</h3>
 <p align="center">
 4. Launch 'System Properties' via Settings>System>About>Advanced System Settings to rename the server to 'DC'. Click the 'Computer Name' tab, then select 'Change'. Enter 'DC' in the 'Computer name' field, then click 'OK'. Restart the server when prompted. <br />
 <img src="https://i.imgur.com/hZt8Ast.png" height="80%" width="80%" alt="Naming The Server "DC""/>
-<br />
 <br />
 </p>
 
@@ -84,7 +80,6 @@ Click 'OK' when finished. <br />
 4. Continue clicking the 'Next' and 'Install' buttons as prompted until the installation succeeds. After the installation succeeds message appears, click 'Close' to close the window. <br/>
 <img src="https://i.imgur.com/80TL8gk.png" height="80%" width="80%" alt="Setup Active Directory"/>
 <br />
-<br />
 </p>
 
 <h3 align="center">Configure Active Directory:</h3>
@@ -101,7 +96,6 @@ Click 'OK' when finished. <br />
 8. Click the 'Install' button to let the process begin. Once the server is configured, a prompt stating the server is being restarted because Active Directory was installed will appear. Select 'Close' on the prompt to let the server restart.
 <img src="https://i.imgur.com/3W4uwgM.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
-<br />
 </p>
 
 <h3 align="center">Windows Login Screen to Login to the Domain:</h3>
@@ -109,12 +103,12 @@ Click 'OK' when finished. <br />
 9. After the server restarts, the login screen should appear as depicted in the image below. It will display the option to sign into the newly configured Active Directory Domain Controller. Proceed to log in to the Domain Controller. <br/>
 <img src="https://i.imgur.com/0CTkAPc.png" height="80%" width="80%" alt="Windows Login Screen To Sign Into Domain"/>
 <br />
-<br />
 </p>
 
 <h2 align="center">Create Organizational Unit and Active Directory Administrator User</h2>
+
+<h3 align="center">Create Organizational Unit:</h3>
 <p align="center">
-Create Organizational Unit:  <br/>
 Now that Active Directory is configured and deployed, the next step is to create an Organizational Unit for Domain administrator user accounts. <br/>
 1. Launch 'Active Directory Users and Computers'. Right-click the domain name in the left sidebar, then select 'New' > 'Organizational Unit' as demonstrated in the image below. <br/>
 <img src="https://i.imgur.com/AQztRkV.png" height="80%" width="80%" alt="Create Organizational Unit"/>
@@ -122,8 +116,10 @@ Now that Active Directory is configured and deployed, the next step is to create
 2. Name the Organizational Unit following the format shown in the image below, then click the 'OK' button when finished. <br/>
 <img src="https://i.imgur.com/UY9vC6c.png" height="80%" width="80%" alt="Create Organizational Unit"/>
 <br />
-<br />
-Create Active Directory Admin User:  <br/>
+</p>
+
+<h3 align="center">Create Active Directory Admin User:</h3>
+<p align="center">
 The next step is to create an Active Directory user with 'Domain Admin' privileges in the newly created Organizational Unit. Having an Active Directory user with Domain Admin rights will simplify configuring the remaining services and executing the PowerShell script to create over 1000 Active Directory user accounts.  <br/>
 3. Select the Organzational Unit that was just created from the left sidebar. Right-click the white space on the right side in the Organizational Unit folder, then select 'New' > 'User' as shown in the image below. <br/>  
 <img src="https://i.imgur.com/vCD87N1.png" height="80%" width="80%" alt="Create AD Admin User"/>
@@ -134,8 +130,10 @@ The next step is to create an Active Directory user with 'Domain Admin' privileg
 5. The newly created user now appears in the Organizational Unit folder on the right side.  <br/>
 <img src="https://i.imgur.com/HSPyVo5.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
-<br />
-Add Active Directory Admin User to Domain Admin Group:  <br/>
+</p>
+
+<h3 align="center">Add Active Directory Admin User to Domain Admin Group:</h3>
+<p align="center">
 With the user created, the user now needs to be added to the 'Domain Admins' security group to grant Domain Admin privileges. <br/>
 6. Right-click the user on the right side in the Organizational Unit folder, then select 'Properties' as depicted in the image below. <br/>
 <img src="https://i.imgur.com/Hhe9AAE.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
@@ -149,15 +147,19 @@ With the user created, the user now needs to be added to the 'Domain Admins' sec
 9. 'Domain Admins' should now appear under the 'Member Of' tab in the user properties window. Close the user properties window and Active Directory Users and Computers. Finally, sign out of the Domain Controller. <br />
 <img src="https://i.imgur.com/EUD3L9r.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
-<br />
-Sign in with Active Directory Admin User:  <br/>
-10. Sign in to the Domain Controller with the newly created Domain Admin user. <br/>
-<img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
 </p>
 
-<h2 align="center">Setup and Configure Routing and Remote Access</h2> <br/>
+<h3 align="center">Sign in with Active Directory Admin User:</h3>
 <p align="center">
-Setup Routing and Remote Acecss:  <br/>
+10. Sign in to the Domain Controller with the newly created Domain Admin user. <br/>
+<img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
+<br />
+</p>
+
+<h2 align="center">Setup and Configure Routing and Remote Access</h2>
+
+<h3 align="center">Setup Routing and Remote Acecss:</h3>
+<p align="center">
 The 'Routing and Remote Access' service will perform NAT for clients connected to the internal virtual network, facilitating connectivity to the global internet. Adding the 'Remote Access' server role to the Domain Controller via Server Manager follows a process similar to what was done with Active Directory Domain Services earlier.<br/>
 1. Launch the 'Add Roles and Features Wizard', and continue clicking the 'Next' button until you reach the 'Server Roles' window. Then, select Remote Access and proceed by clicking 'Next' until the 'Add Features' button appears, then click it. <br/> 
 <img src="https://i.imgur.com/hKDUxqQ.png" height="80%" width="80%" alt="Setup Routing and Remote Access"/>
@@ -165,12 +167,13 @@ The 'Routing and Remote Access' service will perform NAT for clients connected t
 2. Verify that both the 'DirectAccess and VPN (RAS)' and 'Routing' services checkboxes are checked on the 'Role Services' window. To complete the process, click the 'Next' and 'Install' buttons when prompted. Close the 'Add Roles and Features Wizard' when the installation succeeded message appears on the 'Results' window. <br/>  
 <img src="https://i.imgur.com/yNVAXH4.png" height="80%" width="80%" alt="Setup Routing and Remote Access"/>
 <br />
-<br/> 
-Configure Routing and Remote Access:  <br/>
+</p>
+
+<h3 align="center">Configure Routing and Remote Access:</h3>
+<p align="center">
 3. Click the 'Tools' menu in the top right of Server Manager, then select 'Routing and Remote Access' When launched, right-click 'DC (local)' in the left sidebar and select 'Configure and Enable Routing and Remote Access' from the menu. <br/>
 <img src="https://i.imgur.com/a2iVXVX.png" height="80%" width="80%" alt="Configure Routing and Remote Access"/>
 <br />
-<br/>
 4. Select the 'Next' button in the setup wizard to proceed to the 'Configuration' window. On this window choose the 'Network address translation (NAT)' option and click 'Next'. <br/>
 <img src="https://i.imgur.com/xFsrTQS.png" height="80%" width="80%" alt="Configure Routing and Remote Access"/>
 <br />
@@ -180,18 +183,20 @@ Configure Routing and Remote Access:  <br/>
 6. Routing and Remote Access should now display a green up arrow on the 'DC (local)' icon in the left sidebar, indicating a successful configuration. If the green up arrow is not shown, restart the Domain Controller. <br/>
 <img src="https://i.imgur.com/lCUBa13.png" height="80%" width="80%" alt="Configure Routing and Remote Access"/>
 <br />
-<br />
 </p>
 
-<h2 align="center">Setup & Configure DHCP Server</h2> <br/>
+<h2 align="center">Setup & Configure DHCP Server</h2>
+
+<h3 align="center">Setup DHCP Server:</h3>
 <p align="center">
-Setup DHCP Server:  <br/>
 The DHCP Server will automatically assign IP addresses to client machines on the internal virtual network from a range of IP addresses defined in the DHCP pool. <br/>
 1. Open the Add Roles and Features Wizard again and proceed to the Server Roles window. No additional options are required to be selected, so select 'DHCP Server' and proceed through the prompts to add and install the DHCP Server features. Close the Add Roles and Features Wizard once the installation is complete. <br/>
 <img src="https://i.imgur.com/YUH8syg.png" height="80%" width="80%" alt="Setup DHCP Server"/>
 <br />
-<br /> 
-Configure DHCP Server:  <br/>
+</p>
+
+<h3 align="center">Configure DHCP Server:</h3>
+<p align="center">
 2. Access 'DHCP' from the Tools menu in Server Manager. <br/>
 <img src="https://i.imgur.com/seXTEwa.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
@@ -219,12 +224,12 @@ Configure DHCP Server:  <br/>
 10. A green checkmark should now appear on the 'IPv4' server icon in the left sidebar, and the DHCP scope address pool should appear when 'IPv4' is expanded in the left sidebar, as depicted in the image below. <br/>
 <img src="https://i.imgur.com/I6doKYH.png" height="80%" width="80%" alt="Configure DHCP Server"/>
 <br />
-<br />
- 
 </p>
-<h2 align="center">Active Directory Organizational Unit & User Creation With PowerShell Script</h2> <br/>
+ 
+<h2 align="center">Active Directory Organizational Unit & User Creation With PowerShell Script</h2>
+
+<h3 align="center">PowerShell Script Files:</h3>
 <p align="center">
-PowerShell Script Files:  <br/>
 Creating a large number of Active Directory users is repetitive and time-consuming. Automating and simplifying this process can be achieved by utilizing a PowerShell script. <br/>
 1. As shown in the image below, the PowerShell script named '1_CREATE_USERS' will source the names of 1000+ users from the 'names' text file. <br/>
 <img src="https://i.imgur.com/lsv7aD1.png" height="80%" width="80%" alt="PowerShell Script Files"/>
@@ -236,8 +241,10 @@ Creating a large number of Active Directory users is repetitive and time-consumi
 <a href="https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1">PowerShell Script Code Source</a> <br/>
 <img src="https://i.imgur.com/wPR2E3F.png" height="80%" width="80%" alt="PowerShell Script Files"/>
 <br />
-<br />
-Running PowerShell Script with Windows PowerShell ISE:  <br/>
+</p>
+
+<h3 align="center">Running PowerShell Script with Windows PowerShell ISE:</h3>
+<p align="center">
 4. Launch 'Windows PowerShell ISE' as an administrator, open the '1_CREATE_USERS' script in Windows PowerShell ISE, and navigate to the '1_CREATE_USERS' folder location using the Windows PowerShell ISE command line, as illustrated in the image below. <br/>
 <img src="https://i.imgur.com/SLegKFL.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
 <br />
@@ -250,8 +257,10 @@ Running PowerShell Script with Windows PowerShell ISE:  <br/>
 7. Once the script finishes running, 'Completed' should appear in the lower left corner of the Windows PowerShell ISE window. <br/> 
 <img src="https://i.imgur.com/5gSGCtm.png" height="80%" width="80%" alt="Windows PowerShell ISE:"/>
 <br />
-<br /> 
-PowerShell Script Results:  <br/>
+</p>
+
+<h3 align="center">PowerShell Script Results:</h3>
+<p align="center">
 8. Now lets verify the results of the PowerShell script. Open Active Directory Users and Computers where the 'JamRockNationUsers' Organizational Unit should now appear in the left sidebar under the domain 'jamrocknation.com'. As shown below, it does! <br/>  
 <img src="https://i.imgur.com/v05aqVS.png" height="80%" width="80%" alt="PowerShell Script Results"/>
 <br />
@@ -260,10 +269,10 @@ PowerShell Script Results:  <br/>
 <br />
 </p>
 
-<h2 align="center">Joining Windows 10 Client Machine To Active Directory Domain</h2> <br/>
+<h2 align="center">Joining Windows 10 Client Machine To Active Directory Domain</h2>
+
+<h3 align="center">Renaming Windows 10 Client Machine and Joining Active Directory Domain Controller:</h3>
 <p align="center">
-<br />
-Renaming Windows 10 Client Machine and Joining Active Directory Domain Controller:  <br/>
 With Active Directory deployed, DHCP and Routing and Remote Access services running on the Domain Controller, and over 1000 users created with a PowerShell script, joining a newly deployed Windows 10 Enterprise VM client to the Domain Controller will facilitate validation that everything is working as expected. <br/>
 1. After logging into the Windows 10 client, open 'System Properties', navigate to the 'Computer Name' tab, and click the 'Change' button. In the 'Computer Name/Domain Changes' window, enter 'WS1' in the 'Computer name:' field, select the 'Domain' radio button, enter the domain name 'jamrocknation.com' in the 'Domain:' field, and click 'OK'. <br/>
 <img src="https://i.imgur.com/10ghrQx.png" height="80%" width="80%" alt="Windows 10 Client Rename & Joining Active Directory Domain"/>
@@ -274,8 +283,10 @@ With Active Directory deployed, DHCP and Routing and Remote Access services runn
 3. Click 'OK' on the 'Welcome to the domain' message. Next, restart the Windows 10 client. <br/>
 <img src="https://i.imgur.com/DU4v01l.png" height="80%" width="80%" alt="Windows 10 Client Rename & Joining Active Directory Domain"/>
 <br />
-<br /> 
-Sign Into Windows 10 Client Machine With PowerShell Script Active Directory Created User  <br/>
+</p>
+
+<h3 align="center">Sign into Windows 10 Client Machine with PowerShell Script Active Directory Created User</h3>
+<p align="center">
 4. At the Windows 10 client login screen, log in with one of the Active Directory users created by the PowerShell script. <br/>
 <img src="https://i.imgur.com/u1Ew5H4.png" height="80%" width="80%" alt="Windows 10 Client Login Screen To Sign Into Domain"/>
 <br />
