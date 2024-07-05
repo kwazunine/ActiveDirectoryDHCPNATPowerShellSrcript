@@ -17,10 +17,10 @@ This walkthrough covers deploying Active Directory in an on-premises environment
 - <b>Windows 10 Enterprise</b> (21H2)
 - <b>Windows Server 2019</b>
 
-<h2>Operating Systems Used</h2>
+<h2>Prerequisites</h2>
 
-- <b>Windows 10 Enterprise</b> (21H2)
-- <b>Windows Server 2019</b>
+- <b>Default Configured Windows 10 Enterprise VM</b>
+- <b>Default Configured Windows Server 2019 VM</b>
 
 <h2>Environment Map & Overview</h2>
 <img src="https://i.imgur.com/5NBo7w5.png" height="100%" width="100%" alt="Environment Map"/>
