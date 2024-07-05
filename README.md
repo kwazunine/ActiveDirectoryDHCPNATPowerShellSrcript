@@ -1,4 +1,4 @@
-<h1>Active Directory | DHCP | NAT | PowerShell Script [User Creation]</h1>
+<h1>Active Directory | DHCP | NAT | PowerShell Script 'User Creation'</h1>
 
 <h2>Description</h2>
 This walkthrough covers deploying Active Directory in an on-premises environment, configuring Network Address Translation (NAT) and Dynamic Host Configuration Protocol (DHCP) for clients to get connected to the internet, and utilizing a PowerShell script to create over 1000 users in Active Directory.
