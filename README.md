@@ -33,7 +33,7 @@ Before configuring the Windows Server 2019 VM, ensure that the VM in Oracle VM V
 <img src="https://i.imgur.com/2rMfJ6L.png" height="80%" width="80%" alt="Domain Controller Oracle VM VirtualBox Adapter Settings"/>
 <br />
 <br />
-Renaming the Windows Windows Server 2019 Network Adapters:  <br/>
+Renaming the Windows Server 2019 Network Adapters:  <br/>
 Once logged into the Windows Server 2019 VM, both network adapters should be renamed via the Windows Control Panel's Network Connections. This will help in identifying the correct network adapter when configuring NAT with the Routing and Remote Access service. <br/>
 1. Right-click each network adapter and select 'Rename'. <br/>
 <img src="https://i.imgur.com/1icpK93.png" height="80%" width="80%" alt="Renaming Domain Controller Windows Network Adapters"/>
@@ -81,7 +81,7 @@ Configure Active Directory:  <br/>
 6. Enter the domain 'jamrocknation.com'(any domain name can be used) into the 'Root domain name' field as shown below, then click 'Next'.  <br/>
 <img src="https://i.imgur.com/Sn2HnQr.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
-7. Create a Directory Services Restore Mode password, then proceed by clicking 'Next' until the 'Install' button is no longer greyed out. <br/>
+7. Create a 'Directory Services Restore Mode' password, then proceed by clicking 'Next' until the 'Install' button is no longer greyed out. <br/>
 <img src="https://i.imgur.com/2Z8FzMw.png" height="80%" width="80%" alt="Configure Active Directory"/>
 <br />
 8. Click the 'Install' button to let the process begin. Once the server is configured, a prompt stating the server is being restarted because Active Directory was installed will appear. Select 'Close' on the prompt to let the server restart.
@@ -105,8 +105,8 @@ Now that Active Directory is configured and deployed, the next step is to create
 <br />
 <br />
 Create Active Directory Admin User:  <br/>
-The next step is to create an Active Directory user with Domain administrator privileges in the newly created Organizational Unit. Having an Active Directory user account with Domain administrator rights will simplify configuring the remaining services and executing the PowerShell script to create over 1000 Active Directory user accounts.  <br/>
-3. Select the Orgnazational Unit that was just created from the left sidebar. Right-click the white space on the right side in the Organizational Unit folder, then select 'New' > 'User' as shown in the image below. <br/>  
+The next step is to create an Active Directory user with 'Domain Admin' privileges in the newly created Organizational Unit. Having an Active Directory user with Domain Admin rights will simplify configuring the remaining services and executing the PowerShell script to create over 1000 Active Directory user accounts.  <br/>
+3. Select the Organzational Unit that was just created from the left sidebar. Right-click the white space on the right side in the Organizational Unit folder, then select 'New' > 'User' as shown in the image below. <br/>  
 <img src="https://i.imgur.com/vCD87N1.png" height="80%" width="80%" alt="Create AD Admin User"/>
 <br />
 4. Fill out the name and user logon name fields following the format shown in the image below. Click 'Next' to set the password, ensure the 'User must change password at next logon' checkbox is unchecked, and then click 'Next' > 'Finish' to complete the user creation. <br/>
@@ -117,7 +117,7 @@ The next step is to create an Active Directory user with Domain administrator pr
 <br />
 <br />
 Add Active Directory Admin User to Domain Admin Group:  <br/>
-With the user created, the user now needs to be added to the 'Domain Admins' security group to grant Domain administrator privileges. <br/>
+With the user created, the user now needs to be added to the 'Domain Admins' security group to grant Domain Admin privileges. <br/>
 6. Right-click the user on the right side in the Organizational Unit folder, then select 'Properties' as depicted in the image below. <br/>
 <img src="https://i.imgur.com/Hhe9AAE.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br/>
@@ -127,39 +127,39 @@ With the user created, the user now needs to be added to the 'Domain Admins' sec
 8. Enter 'Domain Admins' in the 'Enter the object names to select' field, click the 'Check Names' button to validate, and then click 'OK'. <br/> 
 <img src="https://i.imgur.com/LKUm6v1.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
-9. 'Domain Admins' should now appear under the 'Member Of' tab in the user account properties window. Close the user properties window and Active Directory Users and Computers. Finally, sign out of the Domain Controller. <br />
+9. 'Domain Admins' should now appear under the 'Member Of' tab in the user properties window. Close the user properties window and Active Directory Users and Computers. Finally, sign out of the Domain Controller. <br />
 <img src="https://i.imgur.com/EUD3L9r.png" height="80%" width="80%" alt="Add AD Admin User To Domain Admin Group"/>
 <br />
 <br />
-Sign in with Active Directory Admin User Account:  <br/>
+Sign in with Active Directory Admin User:  <br/>
 10. Sign in to the Domain Controller with the newly created Domain Admin user. <br/>
 <img src="https://i.imgur.com/sSAYoSq.png" height="80%" width="80%" alt="Sign In With AD Admin User"/>
 </p>
 
-<h2 align="center">Setup and Configure Routing and Remote Acecss</h2> <br/>
+<h2 align="center">Setup and Configure Routing and Remote Access</h2> <br/>
 <p align="center">
 Setup Routing and Remote Acecss:  <br/>
 The 'Routing and Remote Access' service will perform NAT for clients connected to the internal virtual network, facilitating connectivity to the global internet. Adding the 'Remote Access' server role to the Domain Controller via Server Manager follows a process similar to what was done with Active Directory Domain Services earlier.<br/>
 1. Launch the 'Add Roles and Features Wizard', and continue clicking the 'Next' button until you reach the 'Server Roles' window. Then, select Remote Access and proceed by clicking 'Next' until the 'Add Features' button appears, then click it. <br/> 
-<img src="https://i.imgur.com/hKDUxqQ.png" height="80%" width="80%" alt="Setup Routing and Remote Acecss"/>
+<img src="https://i.imgur.com/hKDUxqQ.png" height="80%" width="80%" alt="Setup Routing and Remote Access"/>
 <br />
 2. Verify that both the 'DirectAccess and VPN (RAS)' and 'Routing' services checkboxes are checked on the 'Role Services' window. To complete the process, click the 'Next' and 'Install' buttons when prompted. Close the 'Add Roles and Features Wizard' when the installation succeeded message appears on the 'Results' window. <br/>  
-<img src="https://i.imgur.com/yNVAXH4.png" height="80%" width="80%" alt="Setup Routing and Remote Acecss"/>
+<img src="https://i.imgur.com/yNVAXH4.png" height="80%" width="80%" alt="Setup Routing and Remote Access"/>
 <br />
 <br/> 
-Configure Routing and Remote Acecss:  <br/>
-3. Click the 'Tools' menu in the top right of Server Manager, then select 'Routing and Remote Access.' When launched, right-click 'DC (local)' in the left sidebar and select 'Configure and Enable Routing and Remote Access' from the menu. <br/>
-<img src="https://i.imgur.com/a2iVXVX.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+Configure Routing and Remote Access:  <br/>
+3. Click the 'Tools' menu in the top right of Server Manager, then select 'Routing and Remote Access' When launched, right-click 'DC (local)' in the left sidebar and select 'Configure and Enable Routing and Remote Access' from the menu. <br/>
+<img src="https://i.imgur.com/a2iVXVX.png" height="80%" width="80%" alt="Configure Routing and Remote Access"/>
 <br />
 <br/>
-4. Select the 'Next' button in the setup wizard to proceed to the 'Configuration' window. On this window choose 'Network address translation (NAT)' option and click 'Next'. <br/>
-<img src="https://i.imgur.com/xFsrTQS.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+4. Select the 'Next' button in the setup wizard to proceed to the 'Configuration' window. On this window choose the 'Network address translation (NAT)' option and click 'Next'. <br/>
+<img src="https://i.imgur.com/xFsrTQS.png" height="80%" width="80%" alt="Configure Routing and Remote Access"/>
 <br />
 5. Choose the NAT network interface, which is the internet-facing NIC that will translate the IP addresses of client machines on the internal virtual network and enable internet connectivity for them. Select 'Next' and then click 'Finish' in the setup wizard to complete the process. <br/>
-<img src="https://i.imgur.com/EgscLJb.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+<img src="https://i.imgur.com/EgscLJb.png" height="80%" width="80%" alt="Configure Routing and Remote Access"/>
 <br />
 6. Routing and Remote Access should now display a green up arrow on the 'DC (local)' icon in the left sidebar, indicating a successful configuration. If the green up arrow is not shown, restart the Domain Controller. <br/>
-<img src="https://i.imgur.com/lCUBa13.png" height="80%" width="80%" alt="Configure Routing and Remote Acecss"/>
+<img src="https://i.imgur.com/lCUBa13.png" height="80%" width="80%" alt="Configure Routing and Remote Access"/>
 <br />
 <br />
 </p>
@@ -263,7 +263,7 @@ Sign Into Windows 10 Client Machine With PowerShell Script Active Directory Crea
 5. Launch a 'Command Prompt' window on the Windows 10 client and enter 'whoami' to verify the Active Directory user logged in. Next, execute 'ipconfig' to confirm assignment of an IP address '172.16.0.100' from the DHCP service on the Domain Controller. Afterward, enter 'ping 8.8.8.8' to verify internet connectivity to the global internet, checking the echo replies from Google DNS servers confirms a successful connection! <br/>
 <img src="https://i.imgur.com/ukECN6v.png" height="80%" width="80%" alt="Verifying AD User DHCP Internet Connectivity"/>
 <br />
-6. Contiung validation, launch Active Directory Users and Computers on the Domain Controller. Select 'Computers' from the left sidebar where the Windows 10 client 'WS1' should be listed. <br /> 
+6. To continue validation, launch Active Directory Users and Computers on the Domain Controller. Select 'Computers' from the left sidebar, where the Windows 10 client 'WS1' should be listed. <br /> 
 <img src="https://i.imgur.com/AKS89Fl.png" height="80%" width="80%" alt="Verifying Windows 10 Client Joined Active Directory Domain"/>
 <br />
 7. Finally, on the Domain Controller, open DHCP and navigate to 'Address Leases' in the left sidebar. The assigned IP address and DHCP lease details for the Windows 10 client should be displayed, confirming proper functionality. <br /> 
