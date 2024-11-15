@@ -303,14 +303,3 @@ With Active Directory deployed, DHCP and Routing and Remote Access services runn
 <img src="https://i.imgur.com/2933q2p.png" height="80%" width="80%" alt="Verifying Windows 10 Client DHCP Lease"/>
 <br />
 </p>
-
-
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
